@@ -1,6 +1,7 @@
 package com.bridgelabz.genericexampletest;
 
 import com.bridgelabz.genericexample.FindMax;
+import jdk.jshell.EvalException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,64 +11,68 @@ import org.junit.Test;
 * These Test Cases are providing 3 parameters to the method to find largest of 3 numbers
 */
 public class FindMaxTest {
-    FindMax findMax;
-
-    @Before
-    public void initData() {
-        findMax = new FindMax();
-    }
+    private FindMax findMax;
 
     @Test
     public void givenFirstIntegerNumberAsLarge_ShouldReturn_FirstNumberAsMax() {
-        Integer max = findMax.findMaxValue(200, 25, 105);
-        Assert.assertEquals((Integer) 200, max);
+        Integer[] values = {200,15,100};
+        Integer max = new FindMax<Integer>(values).findMaxValue();
+        Assert.assertEquals((Integer) 200,max);
     }
 
     @Test
     public void givenSecondIntegerNumberAsLarge_ShouldReturn_SecondNumberAsMax() {
-        Integer max = findMax.findMaxValue(35, 110, 105);
-        Assert.assertEquals((Integer) 110, max);
+        Integer[] values = {20,150,100};
+        Integer max = new FindMax<Integer>(values).findMaxValue();
+        Assert.assertEquals((Integer) 150,max);
     }
 
     @Test
     public void givenThirdIntegerNumberAsLarge_ShouldReturn_ThirdNumberAsMax() {
-        Integer max = findMax.findMaxValue(35, 110, 215);
-        Assert.assertEquals((Integer) 215, max);
+        Integer[] values = {200,15,1000};
+        Integer max = new FindMax<Integer>(values).findMaxValue();
+        Assert.assertEquals((Integer) 1000,max);
     }
 
     @Test
     public void givenFirstFloatNumberAsLarge_ShouldReturn_FirstNumberAsMax() {
-        Float max = findMax.findMaxValue(350f, 110f, 215f);
-        Assert.assertEquals((Float) 350f, max);
+        Float[] values = {200f,15f,100f};
+        Float max = new FindMax<Float>(values).findMaxValue();
+        Assert.assertEquals((Float) 200f,max);
     }
 
     @Test
     public void givenSecondFloatNumberAsLarge_ShouldReturn_SecondNumberAsMax() {
-        Float max = findMax.findMaxValue(35f, 110f, 25f);
-        Assert.assertEquals((Float) 110f, max);
+        Float[] values = {20f,150f,100f};
+        Float max = new FindMax<Float>(values).findMaxValue();
+        Assert.assertEquals((Float) 150f,max);
     }
 
     @Test
     public void givenThirdFloatNumberAsLarge_ShouldReturn_ThirdNumberAsMax() {
-        Float max = findMax.findMaxValue(350f, 110f, 450f);
-        Assert.assertEquals((Float) 450f, max);
+        Float[] values = {200f,15f,1000f};
+        Float max = new FindMax<Float>(values).findMaxValue();
+        Assert.assertEquals((Float) 1000f,max);
     }
 
     @Test
     public void givenFirstStringAsLarge_ShouldReturn_FirstStringAsMax() {
-        String max = findMax.findMaxValue("350", "110", "215");
-        Assert.assertEquals((String)"350", max);
+        String[] values = {"200","15","100"};
+        String max = new FindMax<String>(values).findMaxValue();
+        Assert.assertEquals((String) "200",max);
     }
 
     @Test
     public void givenSecondStringAsLarge_ShouldReturn_ThirdStringAsMax() {
-        String max = findMax.findMaxValue("350", "450", "215");
-        Assert.assertEquals((String)"450", max);
+        String[] values = {"20","150","100"};
+        String max = new FindMax<String>(values).findMaxValue();
+        Assert.assertEquals((String) "150",max);
     }
 
     @Test
     public void givenThirdStringAsLarge_ShouldReturn_ThirdStringAsMax() {
-        String max = findMax.findMaxValue("350", "110", "400");
-        Assert.assertEquals((String)"400", max);
+        String[] values = {"200","15","1000"};
+        String max = new FindMax<String>(values).findMaxValue();
+        Assert.assertEquals((String) "1000",max);
     }
 }
