@@ -1,51 +1,21 @@
 package com.bridgelabz.genericexample;
 
 public class FindMax {
-
-    public Integer findMaxValue(Integer firstNumber, Integer secondNumber, Integer thirdNumber) {
-        Integer max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
+    /*
+    * Generic Method to Find the Max Value of passed Arguments
+    **/
+    public <E extends Comparable> E findMaxValue(E firstValue, E secondValue, E thirdValue){
+        E max = firstValue;
+        if (secondValue.compareTo(max) > 0) {
+            max = secondValue;
         }
-        if (thirdNumber.compareTo(max) > 0) {
-            max = thirdNumber;
-        }
-        printMax(max);
-        return max;
-    }
-    public Float findMaxValue(Float firstNumber, Float secondNumber, Float thirdNumber) {
-        Float max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
-        }
-        if (thirdNumber.compareTo(max) > 0) {
-            max = thirdNumber;
+        if (thirdValue.compareTo(max) > 0) {
+            max = thirdValue;
         }
         printMax(max);
         return max;
     }
-
-    public String findMaxValue(String firstNumber, String secondNumber, String thirdNumber) {
-        String max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
-        }
-        if (thirdNumber.compareTo(max) > 0) {
-            max = thirdNumber;
-        }
-        printMax(max);
-        return max;
-    }
-
-    private void printMax(Integer max) {
-        System.out.println("Largest = " + max);
-    }
-
-    private void printMax(Float max) {
-        System.out.println("Largest = " + max);
-    }
-
-    private void printMax(String max) {
-        System.out.println("Largest = " + max);
+    public <E> void printMax(E max){
+        System.out.println("Max Value = "+max);
     }
 }
