@@ -1,22 +1,33 @@
 package com.bridgelabz.genericexample;
 
-public class FindMax <E extends Comparable> {
+public class FindMax <E extends Comparable<E> > {
     E[] values;
 
     public FindMax(E[] values) {
         this.values = values;
     }
 
-    public <E extends Comparable> E findMaxValue() {
-        E max = (E) values[0];
-        if (values[1].compareTo(max) > 0) {
-            max = (E) values[1];
+    public <T extends Comparable<E>> E findMaxValue() {
+        if (values[0].compareTo(values[1]) > 0) {
+            if (values[0].compareTo(values[2]) > 0) {
+                printMax(values[0]);
+                return values[0];
+            }
+            else {
+                printMax(values[2]);
+                return values[2];
+            }
         }
-        if (values[2].compareTo(max) > 0) {
-            max = (E) values[2];
+        else {
+            if (values[1].compareTo(values[2]) > 0) {
+                printMax(values[1]);
+                return values[1];
+            }
+            else {
+                printMax(values[2]);
+                return values[2];
+            }
         }
-        printMax(max);
-        return max;
     }
 
     /*
@@ -28,7 +39,7 @@ public class FindMax <E extends Comparable> {
 
     public static void main(String[] args) {
         Integer[] values = {10,20,30};
-        String[] values2 = {"200","15","1000"};
+        String[] values2 = {"200","1500","1000"};
         new FindMax<String>(values2).findMaxValue();
         new FindMax<Integer>(values).findMaxValue();
     }
