@@ -52,4 +52,22 @@ public class FindMaxTest {
         Float max = findMax.findMaxValue(350f, 110f, 450f);
         Assert.assertEquals((Float) 450f, max);
     }
+
+    @Test
+    public void givenFirstStringAsLarge_ShouldReturn_FirstStringAsMax() {
+        String max = findMax.findMaxValue("350", "110", "215");
+        Assert.assertEquals((String)"350", max);
+    }
+
+    @Test
+    public void givenSecondStringAsLarge_ShouldReturn_ThirdStringAsMax() {
+        String max = findMax.findMaxValue("350", "450", "215");
+        Assert.assertEquals((String)"450", max);
+    }
+
+    @Test
+    public void givenThirdStringAsLarge_ShouldReturn_ThirdStringAsMax() {
+        String max = findMax.findMaxValue("350", "110", "400");
+        Assert.assertEquals((String)"400", max);
+    }
 }
