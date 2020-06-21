@@ -1,33 +1,34 @@
 package com.bridgelabz.genericexample;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+
 public class FindMax<E extends Comparable<E>> {
     E[] values;
+    List<E> listValues = new LinkedList<>();
 
     public FindMax(E[] values) {
         this.values = values;
     }
 
-    public static <E> void printMax(E max) {
-        System.out.println("Max Value = " + max);
+    public FindMax(List<E> listValues) {
+        this.listValues = listValues;
     }
 
-    public static void main(String[] args) {
-        Integer[] integerValues = {50, 20, 300};
-        String[] stringValues = {"All", "Good", "Morning"};
-        new FindMax<String>(stringValues).findMaxValue();
-        new FindMax<Integer>(integerValues).findMaxValue();
+    public <E> E findMax() {
+        return (E) Collections.max(listValues);
     }
 
     public E findMaxValue() {
         if (values[0].compareTo(values[1]) > 0 && values[0].compareTo(values[2]) > 0) {
-            printMax(values[0]);
             return values[0];
         } else if (values[1].compareTo(values[0]) > 0 && values[1].compareTo(values[2]) > 0) {
-            printMax(values[1]);
             return values[1];
         } else {
-            printMax(values[2]);
             return values[2];
         }
     }
+
 }
