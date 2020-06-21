@@ -13,6 +13,8 @@ import java.util.List;
  * These Test Cases are providing 3 parameters to the method to find largest of 3 numbers
  */
 public class FindMaxTest {
+
+    /* Test Cases For Integer Array */
     @Test
     public void givenFirstIntegerNumberAsLarge_ShouldReturn_FirstNumberAsMax() {
         Integer[] integerValues = {200, 15, 100};
@@ -34,6 +36,7 @@ public class FindMaxTest {
         Assert.assertEquals((Integer) 1000, max);
     }
 
+    /* Test Cases For Float Array */
     @Test
     public void givenFirstFloatNumberAsLarge_ShouldReturn_FirstNumberAsMax() {
         Float[] floatValues = {200f, 15f, 100f};
@@ -55,6 +58,7 @@ public class FindMaxTest {
         Assert.assertEquals((Float) 1000f, max);
     }
 
+    /* Test Cases For String Array */
     @Test
     public void givenFirstStringAsLarge_ShouldReturn_FirstStringAsMax() {
         String[] stringValues = {"Morning", "Hello", "GM"};
@@ -76,6 +80,7 @@ public class FindMaxTest {
         Assert.assertEquals("Morning", max);
     }
 
+    /* Test Cases For Integer List */
     @Test
     public void givenListOfIntegers_ShouldReturn_MaxValue() {
         List<Integer> integerList = new LinkedList<>();
@@ -84,9 +89,10 @@ public class FindMaxTest {
         integerList.add(20);
         integerList.add(80);
         Object max = new FindMax<>(integerList).findMax();
-        Assert.assertEquals(80,max);
+        Assert.assertEquals(80, max);
     }
 
+    /* Test Cases For Float List */
     @Test
     public void givenListOfFloats_ShouldReturn_MaxValue() {
         List<Float> floatList = new LinkedList<>();
@@ -95,9 +101,10 @@ public class FindMaxTest {
         floatList.add(20f);
         floatList.add(80f);
         Object max = new FindMax<>(floatList).findMax();
-        Assert.assertEquals(80f,max);
+        Assert.assertEquals(80f, max);
     }
 
+    /* Test Cases For String List */
     @Test
     public void givenListOfStrings_ShouldReturn_MaxValue() {
         List<String> stringList = new LinkedList<>();
@@ -106,6 +113,6 @@ public class FindMaxTest {
         stringList.add("All");
         stringList.add("To");
         Object max = new FindMax<>(stringList).findMax();
-        Assert.assertEquals("To",max);
+        Assert.assertEquals("To", max);
     }
 }
